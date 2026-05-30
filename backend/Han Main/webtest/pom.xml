@@ -131,12 +131,13 @@
                             <goal>compile</goal>
                         </goals>
                         <configuration>
-                            <annotationProcessorPaths>
-                                <path>
-                                    <groupId>org.projectlombok</groupId>
+                           <annotationProcessorPaths>
+                               <path>
+                                   <groupId>org.projectlombok</groupId>
                                     <artifactId>lombok</artifactId>
-                                </path>
-                            </annotationProcessorPaths>
+                                   <version>1.18.32</version>
+                               </path>
+                           </annotationProcessorPaths>
                         </configuration>
                     </execution>
                     <execution>
@@ -146,12 +147,13 @@
                             <goal>testCompile</goal>
                         </goals>
                         <configuration>
-                            <annotationProcessorPaths>
-                                <path>
-                                    <groupId>org.projectlombok</groupId>
+                           <annotationProcessorPaths>
+                               <path>
+                                   <groupId>org.projectlombok</groupId>
                                     <artifactId>lombok</artifactId>
-                                </path>
-                            </annotationProcessorPaths>
+                                   <version>1.18.32</version>
+                               </path>
+                           </annotationProcessorPaths>
                         </configuration>
                     </execution>
                 </executions>

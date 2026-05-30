@@ -9,7 +9,8 @@ import org.han.webtest.model.UserModel;
 import org.han.webtest.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import jakarta.servlet.http.Cookie;
+import org.springframework.http.ResponseCookie;
+import org.springframework.http.HttpHeaders;
 
 import java.util.List;
 
@@ -60,14 +61,15 @@ public class UserService {
             String token = jwtService.generateToken(checkEmail.getEmail());
 
 
-            Cookie cookie = new Cookie("token", token);
+          ResponseCookie cookie = ResponseCookie.from("token", token)
+                                    .httpOnly(true)
+                                    .secure(true)
+                                    .sameSite("None")
+                                    .path("/")
+                                    .maxAge(60 * 60 * 24)
+                                    .build();
 
-            cookie.setHttpOnly(true);
-            cookie.setSecure(false);
-            cookie.setPath("/");
-            cookie.setMaxAge(60 * 60 * 24);
-
-            res.addCookie(cookie);
+            res.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
 
             return new UserDashboardResponse(
                     checkEmail.getId(),

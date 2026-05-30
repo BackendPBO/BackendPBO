@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/trainer")
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+
 public class TrainerController {
 
     private final ClassScheduleRepository classScheduleRepository;
